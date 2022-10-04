@@ -74,8 +74,8 @@
         </div>
       </div>
       <ul class="nav flex-column pt-3 pt-md-0">
-        <li class="nav-item">
-          <a href="{{route('home')}}" class="nav-link d-flex align-items-center">
+        <li class="nav-item {{request()->segment(1) == 'home' ? 'active' : ''}}">
+          <a href="{{route('home')}}" class="nav-link d-flex align-items-center " >
             <span class="sidebar-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-boxes" viewBox="0 0 16 16">
                 <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2z" />
@@ -86,7 +86,7 @@
         </li>
 
 
-        <!-- <li class="nav-item">
+        <!-- <li class="nav-item ">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss">
             <span>
               <span class="sidebar-icon">
@@ -102,61 +102,34 @@
               </svg>
             </span>
           </span>
-          <div class="multi-level collapse " role="list" id="ss" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">Add Payment</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">All Payments</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </li> -->
         <!-- Stock in starts  -->
-        <li class="nav-item">
+        <li class="nav-item {{request()->segment(1) == 'purchases' ? 'active' : ''}}" >
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss1">
-            <span>
-              <span class="sidebar-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
-</svg>
+            <a href="{{route('purchases')}}">
+              <span>
+                <span class="sidebar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+                  </svg>
+                </span>
+                <span class="sidebar-text">Purchases</span>
               </span>
-              <span class="sidebar-text">Stock In</span>
-            </span>
-            <span class="link-arrow">
-              <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-              </svg>
-            </span>
+            </a>
+            <a href="{{route('purchases')}}">
+              <span class="link-arrow">
+                <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </span>
+            </a>
           </span>
-          <div class="multi-level collapse " role="list" id="ss1" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">Add New Purchase</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">View All Purchases</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </li>
         <!-- stock in ends  -->
         <!-- Vendors starts  -->
-        <li class="nav-item">
-          <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss2">
+        <li class="nav-item {{request()->segment(1) == 'vendors' ? 'active' : ''}}">
+         <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss2">
+           <a href="{{route('vendors')}}">
             <span>
               <span class="sidebar-icon">
                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-lines-fill" viewBox="0 0 16 16">
@@ -165,100 +138,88 @@
               </span>
               <span class="sidebar-text">Vendors</span>
             </span>
+          </a>
             <span class="link-arrow">
-              <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-              </svg>
+              <a href="{{route('vendors')}}">
+                <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
             </span>
           </span>
-          <div class="multi-level collapse " role="list" id="ss2" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">Add New Vendor</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">View All Vendors</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </li>
         <!-- Vendors ends  -->
         <!-- Sizes Starts  -->
-        <li class="nav-item">
+        <li class="nav-item {{request()->segment(1) == 'sizes' ? 'active' : ''}}">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss3">
             <span>
+             <a href="{{route('sizes')}}">
               <span class="sidebar-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders2" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5ZM12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5ZM1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8Zm9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5Zm1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sliders2" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.5 1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4H1.5a.5.5 0 0 1 0-1H10V1.5a.5.5 0 0 1 .5-.5ZM12 3.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Zm-6.5 2A.5.5 0 0 1 6 6v1.5h8.5a.5.5 0 0 1 0 1H6V10a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5ZM1 8a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 1 8Zm9.5 2a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V13H1.5a.5.5 0 0 1 0-1H10v-1.5a.5.5 0 0 1 .5-.5Zm1.5 2.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5Z"/>
+                  </svg>
+                </span>
+                <span class="sidebar-text">Sizes</span>
+              </a>
+              </span>
+            <a href="{{route('sizes')}}">
+              <span class="link-arrow">
+                <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
               </span>
-              <span class="sidebar-text">Sizes</span>
-            </span>
-            <span class="link-arrow">
-              <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
-              </svg>
-            </span>
+            </a>
           </span>
-          <div class="multi-level collapse " role="list" id="ss3" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">Add New Size</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">View All Sizes</span>
-                </a>
-              </li>
-            </ul>
-          </div>
+          
         </li>
         <!-- sizes ends  -->
         <!-- Stock Out Starts  -->
-        <li class="nav-item">
+        <li class="nav-item {{request()->segment(1) == 'sales' ? 'active' : ''}}">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss4">
             <span>
+              <a href="{{route('sales')}}">
               <span class="sidebar-icon">
-                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-              </span>
-              <span class="sidebar-text">Stock Out</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5zm-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5z"/>
+                  </svg>
+                </span>
+                <span class="sidebar-text">Sales</span>
+              </a>
             </span>
+            <a href="{{route('sales')}}">
             <span class="link-arrow">
               <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
               </svg>
             </span>
+            </a>
           </span>
-          <div class="multi-level collapse " role="list" id="ss4" aria-expanded="false">
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">Add New Sale</span>
-                </a>
-              </li>
-            </ul>
-            <ul class="flex-column nav">
-              <li class="nav-item">
-                <a class="nav-link" href="">
-                  <span class="sidebar-text">View All Sales</span>
-                </a>
-              </li>
-            </ul>
-          </div>
         </li>
         <!-- Stock Out Ends  -->
+        <!-- Customers start -->
+        <li class="nav-item {{request()->segment(1) == 'customers' ? 'active' : ''}}">
+          <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss4">
+            <span>
+              <a href="{{route('customers')}}">
+                <span class="sidebar-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
+                    <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                    <path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                  </svg>
+                </span>
+                <span class="sidebar-text">Customers</span>
+              </a>
+            </span>
+            <a href="{{route('customers')}}">
+            <span class="link-arrow">
+              <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+              </svg>
+            </span>
+            </a>
+          </span>
+        </li>
+        <!-- Customers Ends  -->
         <!-- Company Starts  -->
         <!-- <li class="nav-item">
           <span class="nav-link  collapsed  d-flex justify-content-between align-items-center" data-bs-toggle="collapse" data-bs-target="#ss5">

@@ -1,6 +1,5 @@
 @extends('layouts.main')
 @section('content')
-
 <div class="row mt-4">
     <div class="col-12 col-sm-4 mb-4">
         <div class="card border-0 shadow">
@@ -74,4 +73,41 @@
         </div>
     </div>
 </div>
+<div class="col-lg-4">
+                                    <!-- Button Modal -->
+                                    <button type="button" class="btn btn-block btn-gray-800 mb-3" data-bs-toggle="modal" data-bs-target="#modal-subscribe">Subscribe</button>
+                                    <!-- Modal Content -->
+                                    <div class="modal fade" id="modal-subscribe" tabindex="-1" role="dialog" aria-labelledby="modal-subscribe" aria-hidden="true">
+                                        <div class="modal-dialog modal-tertiary modal-dialog-centered modal-lg" role="document">
+                                            <div class="modal-content bg-dark text-white">
+                                                <div class="modal-header">
+                                                    <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center py-3">
+                                                    <span class="modal-icon">
+                                                        <svg class="icon icon-xl text-gray-200 mb-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M2.94 6.412A2 2 0 002 8.108V16a2 2 0 002 2h12a2 2 0 002-2V8.108a2 2 0 00-.94-1.696l-6-3.75a2 2 0 00-2.12 0l-6 3.75zm2.615 2.423a1 1 0 10-1.11 1.664l5 3.333a1 1 0 001.11 0l5-3.333a1 1 0 00-1.11-1.664L10 11.798 5.555 8.835z" clip-rule="evenodd"></path></svg>
+                                                    </span>
+                                                    <h3 class="modal-title mb-3">Join our 1,360,462 subscribers</h3>
+                                                    <p class="mb-4 lead">Get exclusive access to freebies, premium products and news.</p>
+                                                    <div class="form-group px-lg-5">
+                                                        <div class="d-flex mb-3 justify-content-center">
+                                                            <input type="text" id="subscribe" class="me-sm-1 mb-sm-0 form-control form-control-lg" placeholder="example@company.com">
+                                                            <div>
+                                                                <button type="submit" class="ms-2 btn large-form-btn btn-secondary">Subscribe</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer z-2 mx-auto text-center">
+                                                    <p class="text-white font-small">
+                                                        We’ll never share your details with third parties.
+                                                        <br class="visible-md">View our <a href="#">Privacy Policy</a> for more info.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End of Modal Content -->
+                                </div>
+
 @endsection
