@@ -13,6 +13,7 @@ class sale extends Model
         'size' ,
         'article_no' , 
         'grade' ,
+        'sale_code',
         'box' , 
         'packing' , 
         'measurement',

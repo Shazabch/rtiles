@@ -17,15 +17,8 @@ class CreateSalesTable extends Migration
             $table->id();
             $table->string('customer_id'); 
             $table->foreign('customer_id')->references('id')->on('customers'); 
-            $table->string('size');
-            $table->string('article_no');
-            $table->string('grade')->default('AAA');
-            $table->string('box');
-            $table->string('packing'); // 1.44 
-            $table->string('measurement')->default('meter'); // total meters  box * packing
-            $table->string('price');
-            $table->string('total_price');
-            // (total boxes * measurement ) * price = total amount
+            $table->string('sale_code');
+            $table->string('total_amount');
             $table->timestamps();
         });
     }

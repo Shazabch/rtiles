@@ -35,7 +35,13 @@ class SizeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sizes = new size();
+        $sizes->article_no = $request->input('article_no');
+        $sizes->size = $request->input('size');
+        $sizes->stock = $request->input('stock');
+        $sizes->packing = $request->input('packing');
+        $sizes->save();
+        return redirect()->back()->with('success','New Size Is Added !');
     }
 
     /**
@@ -78,8 +84,10 @@ class SizeController extends Controller
      * @param  \App\Models\size  $size
      * @return \Illuminate\Http\Response
      */
-    public function destroy(size $size)
+    public function destroy(size $size,$id)
     {
-        //
+        $vendors = size::find($id);
+        $vendors->delete();
+        return back()->with('error','Size is Deleted');
     }
 }

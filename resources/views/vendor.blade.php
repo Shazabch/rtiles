@@ -36,7 +36,8 @@
                     <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body  py-3">
-                <form action="" method="POST">
+                <form action="{{route('vendor.store')}}" method="POST">
+                    @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="name">Name</label>

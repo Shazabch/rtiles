@@ -35,7 +35,8 @@
                     <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body  py-3">
-                <form action="" method="POST">
+                <form action="{{route('customer.store')}}" method="POST">
+                    @csrf
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="name">Name</label>
@@ -49,7 +50,7 @@
                         <div class="row mt-2">
                             <div class="col-md-6">
                                 <label for="email">Address</label>
-                                <input type="text" class="form-control" name="address">
+                                <input type="text" class="form-control" name="address" required>
                             </div>
                             <div class="col-md-6">
                                 <button type="submit" class="btn btn-warning mt-4">Save</button>

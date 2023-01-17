@@ -35,7 +35,13 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vendors = new vendor();
+        $vendors->name = $request->input('name');
+        $vendors->phone = $request->input('phone');
+        $vendors->address = $request->input('address');
+        $vendors->email = $request->input('email');
+        $vendors->save();
+        return redirect()->back()->with('success','New Vendor Is Added !');
     }
 
     /**
@@ -78,8 +84,10 @@ class VendorController extends Controller
      * @param  \App\Models\vendor  $vendor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(vendor $vendor)
+    public function destroy(vendor $vendor,$id)
     {
-        //
+        $vendors = vendor::find($id);
+        $vendors->delete();
+        return back()->with('error','Vendor is Deleted');
     }
 }

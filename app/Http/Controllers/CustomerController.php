@@ -35,7 +35,13 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customers = new customer();
+        $customers->name = $request->input('name');
+        $customers->phone = $request->input('phone');
+        $customers->address = $request->input('address');
+        $customers->save();
+
+        return redirect()->route('customers')->with('success','New Customer Is Added !');
     }
 
     /**
