@@ -52,10 +52,6 @@
                                 <input type="number"  class="form-control" name="stock">
                             </div>
                             <div class="col-md-6 mt-2">
-                                <label for="packing">Packing</label>
-                                <input type="number" step="0.01" class="form-control" name="packing">
-                            </div>
-                            <div class="col-md-6 mt-2">
                                 <button type="submit" class="btn btn-warning mt-4">Save</button>
                             </div>
                         </div>

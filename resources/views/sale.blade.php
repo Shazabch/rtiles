@@ -78,7 +78,7 @@
                 </div>
                 <div class="row container">
                     <div class="col-md-4 ">
-                        <select name="customer_id" class="form-control" id="">
+                        <select name="customer_id" class="form-control" required>
                             <option value="0">Select Customer</option>
                             @foreach($customers as $customer)
                                 <option value="{{$customer->id}}">{{$customer->name}}</option>
@@ -107,13 +107,13 @@
                                 <tbody class="tbody1" >
                                     <tr>
                                         <input type="hidden" name="total_amount" class="amount" value="">
-                                        <td><input type="text" class="form-control" name="size[]"> </td>
-                                        <td><input type="text" class="form-control" name="article_no[]"></td>
-                                        <td><input type="text" class="form-control" value="AAA" name="grade[]"></td>
-                                        <td><input type="text" class="form-control" name="packing[]"></td>
-                                        <td><input type="text" class="form-control box" id="box" name="box[]"></td>
-                                        <td><input type="text" class="form-control meter" id="meter"  name="measurement[]"></td>
-                                        <td><input type="text" class="form-control price" id="price"  name="price[]"></td>
+                                        <td><input type="text" class="form-control" name="size[]" required> </td>
+                                        <td><input type="text" class="form-control" name="article_no[]" required></td>
+                                        <td><input type="text" class="form-control" value="AAA" name="grade[]" required></td>
+                                        <td><input type="number" step="0.01" class="form-control" name="packing[]" required></td>
+                                        <td><input type="number" class="form-control box" id="box" name="box[]" required></td>
+                                        <td><input type="number" step="0.01" class="form-control meter" id="meter"  name="measurement[]" required></td>
+                                        <td><input type="number" step="0.01" class="form-control price" id="price"  name="price[]" required></td>
                                         <td><input type="text" class="form-control total_price" value="" id="total_price" name="total_price[]" readonly></td>
                                         <td><a href="javascript:void(0);" class="btn btn-danger text-white removeRow">-</a></td>
                                     </tr>

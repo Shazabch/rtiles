@@ -41,15 +41,11 @@
                                 <div class="row">
                                 <div class="col-md-6">
                                     <img src="{{asset('png.png')}}" width="100px" height="100px">
-                                        @foreach($sales as $sale)
-                                            @if($loop->first)
                                                 <p class="mt-2 lead"><b style="font-size: 15px;">Royal Sanitary & Tile center</br>
 
-                                                Customer Name : </b><span style="font-size: 15px;">{{$sale->customer ? $sale->customer->name : 'N/A'}}</span>
-                                                &nbsp;<b style="font-size: 15px;">Sale Code : </b> <span style="font-size: 15px;">{{$sale->sale_code}}</span>
+                                                Customer Name : </b><span style="font-size: 15px;">{{$sales1[0]->customer ? $sales1[0]->customer->name : 'N/A'}}</span>
+                                                &nbsp;<b style="font-size: 15px;">Sale Code : </b> <span style="font-size: 15px;">{{$sales1[0]->sale_code}}</span>
                                             </p>
-                                            @endif
-                                        @endforeach
                                 </div>
                                 <div class="col-md-6 mt-0 mt-md-5 mb-2 mb-md-0">
                                     <b class="text-center" style="font-size: 15px;">Contact us :</b> <br>
@@ -63,7 +59,7 @@
                         <div>
                            
 
-                             <table class="table ">
+                             <table class="table table-responsive">
                                   <thead>
                                         <tr>
                                             <th>#</th>  
@@ -89,11 +85,12 @@
                                             <td>{{$sale->box}}</td>
                                             <td>{{$sale->tile}}</td>
                                             <td>{{$sale->measurement}}</td>
-                                            <td>{{$sale->price}}</td>
-                                            <td>{{$sale->total_price}}</td>
+                                            <td>{{number_format($sale->price , 2)}}</td>
+                                            <td>{{number_format($sale->total_price ,2 )}}</td>
                                         </tr>
                                         @endforeach
                                                 <tr>
+                                                    <td></td>
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>

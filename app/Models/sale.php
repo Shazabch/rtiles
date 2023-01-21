@@ -20,4 +20,8 @@ class sale extends Model
         'price' ,
         'total_price'
     ];
+
+    public function customer(){
+        return $this->belongsTo(customer::class);
+    }
 }

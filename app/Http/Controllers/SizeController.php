@@ -39,7 +39,6 @@ class SizeController extends Controller
         $sizes->article_no = $request->input('article_no');
         $sizes->size = $request->input('size');
         $sizes->stock = $request->input('stock');
-        $sizes->packing = $request->input('packing');
         $sizes->save();
         return redirect()->back()->with('success','New Size Is Added !');
     }

@@ -35,6 +35,8 @@ Route::match(['get','post'],'/customers',[CustomerController::class,'index'])->n
 Route::post('/save/customer',[CustomerController::class,'store'])->name('customer.store');
 Route::post('/save/vendor',[VendorController::class,'store'])->name('vendor.store');
 Route::post('/save/sale',[SaleController::class,'store'])->name('sales.store');
+Route::post('/save/size',[SizeController::class,'store'])->name('size.store');
+Route::post('/save/purchase',[PurchaseController::class,'store'])->name('purchases.store');
 
 Route::get('/sale/edit/{id}',[SaleController::class,'edit'])->name('sales.edit');
-Route::get('/sale/edit/{id}',[SaleController::class,'edit'])->name('sales.receipt');
+Route::get('/sale/receipt/{id}',[SaleController::class,'show'])->name('sales.receipt');

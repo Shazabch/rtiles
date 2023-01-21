@@ -88,8 +88,8 @@ class SaleController extends Controller
         // dd($id);
         $sale_code = $id;
         $sales = Saledetail::where('sale_id',$sale_code)->get();
-        // dd($sales);
-        return view('sales.receipt',compact('sale_code','sales'));
+        $sales1 = sale::where('id',$id)->get();
+        return view('sales.receipt',compact('sale_code','sales','sales1'));
     }
 
     /**

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSaledetailsTable extends Migration
+class CreatePurchasedetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateSaledetailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('saledetails', function (Blueprint $table) {
+        Schema::create('purchasedetails', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("sale_id")->constrained("sales");
+            $table->foreignId("purchase_id")->constrained("purchases");
             $table->string('article_no');
             $table->string('size');
             $table->string('grade')->default('AAA');
@@ -25,7 +25,6 @@ class CreateSaledetailsTable extends Migration
             $table->string('price');
             $table->string('total_price');
             $table->timestamps();
-
         });
     }
 
@@ -36,6 +35,6 @@ class CreateSaledetailsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('saledetails');
+        Schema::dropIfExists('purchasedetails');
     }
 }

@@ -18,7 +18,6 @@ class CreateSizesTable extends Migration
             $table->string('article_no');
             $table->string('size');
             $table->string('stock');
-            $table->string('packing');
             $table->timestamps();
         });
     }

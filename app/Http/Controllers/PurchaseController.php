@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\purchase;
+use App\Models\Purchasedetail;
 use App\Models\size;
 use App\Models\vendor;
 use Illuminate\Http\Request;
@@ -41,23 +42,36 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->input();
+        $purchases = new purchase();
+        $purchases->vendor_id = $request->input('vendor_id');
+        $purchases->purchase_code = $request->input('purchase_code'); 
+        $purchases->total_amount = $request->total_amount;
+        $purchases->save();
+        $total = 0; 
+       
         $count = count($request->grade);
         for($i =0 ;$i<$count ; $i++ ){
-            $purchase = new purchase();
-            $purchase->vendor_id = $request->input('vendor_id');
-            $purchase->purchase_code = $request->input('purchase_code');
-            $purchase->total_amount = $request->input('total_amount');
-            $purchase->article_no = $request->input('article_no')[$i];
-            $purchase->size = $request->input('size')[$i];
-            $purchase->grade = $request->input('grade')[$i];
-            $purchase->packing = $request->input('packing')[$i];
-            $purchase->box = $request->input('box')[$i];
-            $purchase->measurement = $request->input('measurement')[$i];
-            $purchase->total_price = $request->input('total_price')[$i];
-            $purchase->price = $request->input('price')[$i];
-            $purchase->save();
+            $details[] = [
+                'purchase_id' => $purchases->id,
+                'article_no' => $request->input('article_no')[$i],
+                'size' => $request->input('size')[$i],
+                'grade' => $request->input('grade')[$i],
+                'packing' => $request->input('packing')[$i],
+                'box' => $request->input('box')[$i],
+                'measurement' => $request->input('measurement')[$i],
+                'total_price' => $request->input('total_price')[$i],
+                'price' =>  $request->input('price')[$i],
+                'created_at' => now()   
+                
+            ];
+              $total = $total +$request->input('total_price')[$i];
         }
+
+        Purchasedetail::where('id',$purchases->id)->delete();
+        Purchasedetail::insert($details);
+        $purchases->update(['amount'=>$total]);  
+        
+        return back()->with('succeess','New Sale is added !');
     }
 
     /**

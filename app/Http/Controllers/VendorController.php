@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\vendor;
 use Illuminate\Http\Request;
-
 class VendorController extends Controller
 {
     /**
