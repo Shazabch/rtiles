@@ -14,4 +14,8 @@ class vendor extends Model
         'address',
         'email'
     ];
+
+    public function purchase(){
+        return $this->hasMany(purchase::class);
+    }
 }

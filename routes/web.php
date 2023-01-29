@@ -40,3 +40,6 @@ Route::post('/save/purchase',[PurchaseController::class,'store'])->name('purchas
 
 Route::get('/sale/edit/{id}',[SaleController::class,'edit'])->name('sales.edit');
 Route::get('/sale/receipt/{id}',[SaleController::class,'show'])->name('sales.receipt');
+
+Route::get('/purchase/show/{id}',[PurchaseController::class,'show'])->name('purchases.show');
+Route::get('/purchase/edit/{id}',[PurchaseController::class,'edit'])->name('purchases.edit');

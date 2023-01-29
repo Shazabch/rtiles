@@ -19,4 +19,8 @@ class purchase extends Model
         'price' ,
         'total_price'
     ];
+
+    public function vendor(){
+        return $this->belongsTo(vendor::class);
+    }
 }

@@ -24,34 +24,28 @@
                     <table class="table  table-striped table-responsive">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>purchase Code</th>
-                                <th>vendor Name</th>
-                                <th>Total Amount</th>
-                                <th>purchase Date</th>
-                                <th>Actions</th>
+                                <th class="text-center">#</th>
+                                <th class="text-center">purchase Code</th>
+                                <th class="text-center">vendor Name</th>
+                                <th class="text-center">Total Amount</th>
+                                <th class="text-center">purchase Date</th>
+                                <th class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach($purchases as $index => $purchase)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$purchase->purchase_code}}</td>
-                                <td>{{$purchase->vendor ? $purchase->vendor->name : 'N/A'}}</td>
-                                <td>{{number_format($purchase->total_amount)}}</td>
-                                <td>{{$purchase->created_at->format('M d Y, h:m:s a');}}</td>
-                                <td>
-                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                                <td class="text-center">{{$loop->iteration}}</td>
+                                <td class="text-center">{{$purchase->purchase_code}}</td>
+                                <td class="text-center">{{$purchase->vendor ? $purchase->vendor->name : 'N/A'}}</td>
+                                <td class="text-center">{{number_format($purchase->total_amount)}}</td>
+                                <td class="text-center">{{$purchase->created_at->format('M d Y, h:m:s a');}}</td>
+                                <td class="text-center">
+                                    <a href="{{ route('purchases.show',$purchase->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
                                         <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
                                         <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
                                         </svg>
                                     </a> &nbsp;
-                                    <a href="#">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
-                                            <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
-                                            <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
-                                        </svg>
-                                    </a>
                                 </td>
                             </tr>
                             @endforeach

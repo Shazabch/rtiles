@@ -1,7 +1,6 @@
 @extends('layouts.main')
 @section('content')
 <style>
-
 </style>
 
 <div class="container-fluid">
@@ -41,11 +40,6 @@
                                 <td>{{number_format($sale->total_amount)}}</td>
                                 <td>{{$sale->created_at->format('M d Y, h:m:s a');}}</td>
                                 <td>
-                                    <a href=""><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
-                                        <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
-                                        <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
-                                        </svg>
-                                    </a> &nbsp;
                                     <a href="{{route('sales.receipt',$sale->id)}}">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-printer" viewBox="0 0 16 16">
                                             <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
@@ -78,10 +72,11 @@
                 </div>
                 <div class="row container">
                     <div class="col-md-4 ">
-                        <select name="customer_id" class="form-control" required>
-                            <option value="0">Select Customer</option>
+                        <select style="display:block; width:100%;  "
+      name="customer_id" class="search-select form-control" required>
+                            <option  value="0">Select Customer</option>
                             @foreach($customers as $customer)
-                                <option value="{{$customer->id}}">{{$customer->name}}</option>
+                                <option style="padding:100px;" value="{{$customer->id}}">{{$customer->name}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -108,7 +103,10 @@
                                     <tr>
                                         <input type="hidden" name="total_amount" class="amount" value="">
                                         <td><input type="text" class="form-control" name="size[]" required> </td>
-                                        <td><input type="text" class="form-control" name="article_no[]" required></td>
+                                        <!-- <td><input type="text" class="form-control" name="article_no[]" required></td> -->
+                                        <td>
+                                            <input type="text" class="form-control" name="article_no[]">
+                                        </td>
                                         <td><input type="text" class="form-control" value="AAA" name="grade[]" required></td>
                                         <td><input type="number" step="0.01" class="form-control" name="packing[]" required></td>
                                         <td><input type="number" class="form-control box" id="box" name="box[]" required></td>
@@ -146,6 +144,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
 <script>
     $(document).ready(function(){
+        $('.search-select').select2({
+            dropdownParent: $('#modal-subscribe'),
+        });
         $('thead').on('click','.addRow',function(){
        const tr = "<tr>"+
                        "<td><input type='text' class='form-control' name='size[]'></td>"+

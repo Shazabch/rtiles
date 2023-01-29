@@ -40,10 +40,12 @@
   <link type="text/css" href="{{asset('volt-theme/html&css/vendor/sweetalert2/dist/sweetalert2.min.css')}}" rel="stylesheet">
   <link type="text/css" href="{{asset('volt-theme/html&css/vendor/notyf/notyf.min.css')}}" rel="stylesheet">
   <link type="text/css" href="{{asset('volt-theme/html&css/css/volt.css')}}" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <!-- Styles for livewire datTable -->
   @livewireStyles
   @powerGridStyles
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   @yield('styles')
 </head>
 
@@ -302,7 +304,6 @@
   <main class="content">
     @yield('content')
   </main>
-
   <script src="{{asset('volt-theme/html&css/vendor/@popperjs/core/dist/umd/popper.min.js')}}"></script>
   <script src="{{asset('volt-theme/html&css/vendor/bootstrap/dist/js/bootstrap.min.js')}}"></script>
   <script src="{{asset('volt-theme/html&css/vendor/onscreen/dist/on-screen.umd.min.js')}}"></script>
@@ -320,11 +321,9 @@
   <script src="{{asset('volt-theme/html&css/assets/js/volt.js')}}"></script>
 
   <!-- Scripts For Livewire dataTable -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   @livewireScripts
   @powerGridScripts
-  <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   @yield('scripts')
 
 </body>

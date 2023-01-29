@@ -80,9 +80,13 @@ class PurchaseController extends Controller
      * @param  \App\Models\purchase  $purchase
      * @return \Illuminate\Http\Response
      */
-    public function show(purchase $purchase)
+    public function show(purchase $purchase,$id)
     {
-        //
+        $purchase_code = $id;
+        // dd($purchase_code);
+        $purchases = Purchasedetail::where('purchase_id',$purchase_code)->get();
+        $purchases1 = purchase::where('id',$id)->first();
+        return view('purchases.show',compact('purchase_code','purchases','purchases1'));
     }
 
     /**
