@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
             <div class="d-flex justify-self-end mt-4">
-                <h4 class="mt-1">All Sizes &nbsp; &nbsp;</h4>
+                <h4 class="mt-1">All Articles &nbsp; &nbsp;</h4>
                 <button  type="button" class="btn btn-sm text-sm  bg-gray-600 text-white " data-bs-toggle="modal" 
                 data-bs-target="#modal-subscribe">Add New</button>
             </div>
@@ -31,7 +31,7 @@
         <div class="modal-dialog modal-primary modal-dialog-centered modal-lg" role="document">
             <div class="modal-content bg-dark text-white">
                 <div class="modal-header">
-                    <h4 style="align-text:center;" class="text-center">Add New Size</h4>
+                    <h4 style="align-text:center;" class="text-center">Add New Article</h4>
                     <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body  py-3">
@@ -39,20 +39,31 @@
                     @csrf
                         <div class="row">
                             <div class="col-md-6 mt-2">
-                                <label for="name">Size</label>
-                                <input type="text" class="form-control" name="size" required>
-                            </div>
-                            <div class="col-md-6 mt-2">
                                 <label for="name">Article No.</label>
                                 <input type="text" class="form-control" name="article_no" required>
+                            </div>
+                            <div class="col-md-6 mt-2">
+                                <label for="name">Size</label>
+                                <input type="text" class="form-control" name="size" required>
                             </div>
 
                             <div class="col-md-6 mt-2">
                                 <label for="stock">Stock / Boxes</label>
                                 <input type="number"  class="form-control" name="stock">
                             </div>
+
                             <div class="col-md-6 mt-2">
-                                <button type="submit" class="btn btn-warning mt-4">Save</button>
+                                <label for="price-p">Purchase Price</label>
+                                <input type="text"  class="form-control" name="purchase_price">
+                            </div>
+
+                            <div class="col-md-6 mt-2">
+                                <label for="price-s">Sale Price</label>
+                                <input type="text"  class="form-control" name="sale_price">
+                            </div>
+
+                            <div class="col-md-6 mt-2">
+                                <button type="submit" class="btn btn-warning text-white mt-4">Save</button>
                             </div>
                         </div>
                         

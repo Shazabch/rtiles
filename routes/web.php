@@ -19,27 +19,29 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function(){
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::match(['get','post'],'/vendors',[VendorController::class,'index'])->name('vendors');
-Route::match(['get','post'],'/sizes',[SizeController::class,'index'])->name('sizes');
-Route::match(['get','post'],'/purchases',[PurchaseController::class,'index'])->name('purchases');
-Route::match(['get','post'],'/sales',[SaleController::class,'index'])->name('sales');
-Route::match(['get','post'],'/customers',[CustomerController::class,'index'])->name('customers');
-
-Route::post('/save/customer',[CustomerController::class,'store'])->name('customer.store');
-Route::post('/save/vendor',[VendorController::class,'store'])->name('vendor.store');
-Route::post('/save/sale',[SaleController::class,'store'])->name('sales.store');
-Route::post('/save/size',[SizeController::class,'store'])->name('size.store');
-Route::post('/save/purchase',[PurchaseController::class,'store'])->name('purchases.store');
-
-Route::get('/sale/edit/{id}',[SaleController::class,'edit'])->name('sales.edit');
-Route::get('/sale/receipt/{id}',[SaleController::class,'show'])->name('sales.receipt');
-
-Route::get('/purchase/show/{id}',[PurchaseController::class,'show'])->name('purchases.show');
-Route::get('/purchase/edit/{id}',[PurchaseController::class,'edit'])->name('purchases.edit');
+    Route::match(['get','post'],'/vendors',[VendorController::class,'index'])->name('vendors');
+    Route::match(['get','post'],'/sizes',[SizeController::class,'index'])->name('sizes');
+    Route::match(['get','post'],'/purchases',[PurchaseController::class,'index'])->name('purchases');
+    Route::match(['get','post'],'/sales',[SaleController::class,'index'])->name('sales');
+    Route::match(['get','post'],'/customers',[CustomerController::class,'index'])->name('customers');
+    
+    Route::post('/save/customer',[CustomerController::class,'store'])->name('customer.store');
+    Route::post('/save/vendor',[VendorController::class,'store'])->name('vendor.store');
+    Route::post('/save/sale',[SaleController::class,'store'])->name('sales.store');
+    Route::post('/save/size',[SizeController::class,'store'])->name('size.store');
+    Route::post('/save/purchase',[PurchaseController::class,'store'])->name('purchases.store');
+    
+    Route::get('/sale/edit/{id}',[SaleController::class,'edit'])->name('sales.edit');
+    Route::get('/sale/receipt/{id}',[SaleController::class,'show'])->name('sales.receipt');
+    
+    Route::get('/purchase/show/{id}',[PurchaseController::class,'show'])->name('purchases.show');
+    Route::get('/purchase/edit/{id}',[PurchaseController::class,'edit'])->name('purchases.edit');
+});

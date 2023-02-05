@@ -37,6 +37,8 @@ class SizeController extends Controller
     {
         $sizes = new size();
         $sizes->article_no = $request->input('article_no');
+        $sizes->sale_price = $request->input('sale_price');
+        $sizes->purchase_price = $request->input('purchase_price');
         $sizes->size = $request->input('size');
         $sizes->stock = $request->input('stock');
         $sizes->save();

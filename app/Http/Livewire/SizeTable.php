@@ -86,6 +86,10 @@ final class SizeTable extends PowerGridComponent
             ->addColumn('id')
             ->addColumn('article_no')
             ->addColumn('size')
+            ->addColumn('packing')
+            ->addColumn('stock')
+            ->addColumn('purchase_price')
+            ->addColumn('sale_price')
             ->addColumn('stock')
             ->addColumn('created_at_formatted', function(Size $model) { 
                 return Carbon::parse($model->created_at)->format('d/m/Y H:i:s');
@@ -132,8 +136,29 @@ final class SizeTable extends PowerGridComponent
                 ->makeInputText(),
 
             Column::add()
+                ->title('PACKING')
+                ->field('packing')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
+            Column::add()
                 ->title('STOCK')
                 ->field('stock')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
+            Column::add()
+                ->title('Purchase Price')
+                ->field('purchase_price')
+                ->sortable()
+                ->searchable()
+                ->makeInputText(),
+
+            Column::add()
+                ->title('Sale Price')
+                ->field('sale_price')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),

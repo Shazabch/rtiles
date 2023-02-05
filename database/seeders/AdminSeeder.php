@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class AdminSeeder extends Seeder
@@ -13,6 +14,12 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $user = [
+            'name' => 'Royal Tiles' ,
+            'email' => 'admin@royaltiles.com',
+            'password' => bcrypt('royaltiles') ,
+        ];
+
+        User::insert($user);
     }
 }

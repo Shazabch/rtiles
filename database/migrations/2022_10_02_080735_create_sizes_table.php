@@ -18,6 +18,8 @@ class CreateSizesTable extends Migration
             $table->string('article_no');
             $table->string('size');
             $table->string('stock');
+            $table->string('sale_price');
+            $table->string('purchase_price');
             $table->timestamps();
         });
     }
