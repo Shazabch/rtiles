@@ -27,7 +27,7 @@ Auth::routes();
 Route::middleware('auth')->group(function(){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-    Route::match(['get','post'],'/vendors',[VendorController::class,'index'])->name('vendors');
+    Route::match(['get','post'],'/vendorss',[VendorController::class,'index'])->name('vendors');
     Route::match(['get','post'],'/sizes',[SizeController::class,'index'])->name('sizes');
     Route::match(['get','post'],'/purchases',[PurchaseController::class,'index'])->name('purchases');
     Route::match(['get','post'],'/sales',[SaleController::class,'index'])->name('sales');

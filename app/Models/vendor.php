@@ -12,7 +12,8 @@ class vendor extends Model
         'name',
         'phone',
         'address',
-        'email'
+        'email',
+        'vendor_logo'
     ];
 
     public function purchase(){

@@ -16,7 +16,6 @@ class CreatePurchasesTable extends Migration
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
             $table->string('vendor_id'); 
-            $table->foreign('vendor_id')->references('id')->on('vendors');
             $table->string('purchase_code');
             $table->string('total_amount'); 
             

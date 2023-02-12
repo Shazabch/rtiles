@@ -36,7 +36,7 @@
                     <button type="button" class="btn-close btn-close-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body  py-3">
-                <form action="{{route('vendor.store')}}" method="POST">
+                <form action="{{route('vendor.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                         <div class="row">
                             <div class="col-md-6">
@@ -58,10 +58,16 @@
                                 <input type="text" class="form-control" name="address" required>
                             </div>
                         </div>
+                        <div class="row mt-2">
+                            <div class="col-md-6">
+                                <label for="fiel">Vendor Logo</label>
+                                <input type="file" class="form-control" name="vendor_logo" id="vendor_logo">
+                            </div>
+                        </div>
 
                         <div class="row  mt-3" style="float:right;" >
                             <div class="col-md-4">
-                                <button type="submit" class="btn btn-warning ">Save</button>
+                                <button type="submit" class="btn btn-warning  ">Save</button>
                             </div>
                         </div>
                         

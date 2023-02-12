@@ -5,7 +5,7 @@
         <div class="card card-body p-5">
       <div class="row">
         <div class="col-md-6">
-          <img src="{{ asset('orealLogo.png') }}" class="img-responsive">
+          <img src="{{ asset('Vendors/'.$purchases1->vendor->vendor_logo) }}" class="img-responsive">
         </div>
         <div class="col-md-6">
           <h3>Purchase Details</h3>

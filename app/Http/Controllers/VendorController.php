@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\vendor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+
 class VendorController extends Controller
 {
     /**
@@ -34,7 +36,15 @@ class VendorController extends Controller
      */
     public function store(Request $request)
     {
+
         $vendors = new vendor();
+        if (!empty($request->file('vendor_logo'))) {
+                $file = $request->file('vendor_logo');
+                $filename =$file->getClientOriginalName();
+               $file->move(public_path('Vendors'), $filename);
+               $files = $filename; 
+               $vendors->vendor_logo = $files;
+            }
         $vendors->name = $request->input('name');
         $vendors->phone = $request->input('phone');
         $vendors->address = $request->input('address');
