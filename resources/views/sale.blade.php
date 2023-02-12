@@ -108,11 +108,11 @@
                                             <input type="text" class="form-control" name="article_no[]">
                                         </td>
                                         <td><input type="text" class="form-control" value="AAA" name="grade[]" required></td>
-                                        <td><input type="number" step="0.01" class="form-control" name="packing[]" required></td>
+                                        <td><input type="number" step="0.01" class="form-control" id="packing" name="packing[]" required></td>
                                         <td><input type="number" class="form-control box" id="box" name="box[]" required></td>
-                                        <td><input type="number" step="0.01" class="form-control meter" id="meter"  name="measurement[]" required></td>
+                                        <td><input type="number" step="0.01" class="form-control meter" id="meter"  name="measurement[]" readonly required></td>
                                         <td><input type="number" step="0.01" class="form-control price" id="price"  name="price[]" required></td>
-                                        <td><input type="text" class="form-control total_price" value="" id="total_price" name="total_price[]" readonly></td>
+                                        <td><input type="text" class="form-control total_price" value="" id="total_price" name="total_price[]" readonly required></td>
                                         <td><a href="javascript:void(0);" class="btn btn-danger text-white removeRow">-</a></td>
                                     </tr>
                                 </tbody>
@@ -149,14 +149,14 @@
         });
         $('thead').on('click','.addRow',function(){
        const tr = "<tr>"+
-                       "<td><input type='text' class='form-control' name='size[]'></td>"+
-                       "<td><input type='text' class='form-control' name='article_no[]'></td>"+
-                       "<td><input type='text' class='form-control' value='AAA' name='grade[]'></td>"+
-                       "<td><input type='text' class='form-control ' name='packing[]'></td>"+
-                       "<td><input type='text' class='form-control ' id='box' name='box[]'></td>"+
-                       "<td><input type='text' class='form-control ' id='meter' name='measurement[]'></td>"+
-                       "<td><input type='text' class='form-control ' id='price' name='price[]'></td>"+
-                       "<td><input type='text' class='form-control total_price' name='total_price[]' readonly></td>"+
+                       "<td><input type='text' class='form-control' name='size[]' required></td>"+
+                       "<td><input type='text' class='form-control' name='article_no[]' required></td>"+
+                       "<td><input type='text' class='form-control' value='AAA' name='grade[]' required></td>"+
+                       "<td><input type='text' class='form-control ' id='packing' name='packing[]' required></td>"+
+                       "<td><input type='text' class='form-control ' id='box' name='box[]' required></td>"+
+                       "<td><input type='text' class='form-control meter' id='meter' name='measurement[]' readonly required></td>"+
+                       "<td><input type='text' class='form-control ' id='price' name='price[]' required></td>"+
+                       "<td><input type='text' class='form-control total_price' name='total_price[]' required readonly></td>"+
                        "<td><a href='javascript:void(0);'' class='btn btn-danger text-white removeRow'>-</a></td>"+
                    "</tr>";
                    $('.tbody1').append(tr);
@@ -179,12 +179,18 @@
         }
 
 
-        $('body').delegate('#box,#meter,#price','keyup',function(){
+        $('body').delegate('#box,#packing','keyup',function(){
             var data = $(this).parent().parent();
             var box =  data.find('#box').val();
             var meter =  data.find('#meter').val();
+            var packing =  data.find('#packing').val();
+            var meter1 = data.find('.meter').val(box*packing);
+        });
+        $('body').delegate('#price','keyup',function(){
+            var data = $(this).parent().parent();
+            var meter =  data.find('.meter').val();
             var price =  data.find('#price').val();
-            data.find('.total_price').val(box*meter*price);
+            data.find('.total_price').val(meter*price);
             total();
         });
     });
